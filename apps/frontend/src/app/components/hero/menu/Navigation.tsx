@@ -1,5 +1,4 @@
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "../../../../components/ui/navigation-menu";
-
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "../../../../components/ui/navigation-menu";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import { fetchPayloadContent } from "@/lib/payload";
 import Link from "next/link";
@@ -12,13 +11,13 @@ export default async function Navigation() {
   const menuIten = menuItens[0];
 
   return (
-    <div className="display justify-content-center">
+    <div>
       <div className="w-fit h-auto rounded-3xl border p-1">
         <NavigationMenu>
           <NavigationMenuList>
             {menuIten?.Menu?.map((item: any) => (
-              <NavigationMenuItem>
-                <Link href={item.link} passHref>
+              <NavigationMenuItem key={item.id}>
+                <Link href={item.link || '#'} legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     {item.name}
                   </NavigationMenuLink>
