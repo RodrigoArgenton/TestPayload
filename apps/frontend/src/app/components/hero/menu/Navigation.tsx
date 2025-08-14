@@ -12,13 +12,13 @@ export default async function Navigation() {
 
   return (
     <div>
-      <div className="w-fit h-auto rounded-3xl border p-1">
+      <div className="w-fit h-auto rounded-full p-1 border text">
         <NavigationMenu>
-          <NavigationMenuList>
+          <NavigationMenuList className="gap-2">
             {menuIten?.Menu?.map((item: any) => (
               <NavigationMenuItem key={item.id}>
                 <Link href={item.link || '#'} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} rounded-full p-3 hover:bg-accent p-6`}>
                     {item.name}
                   </NavigationMenuLink>
                 </Link>
